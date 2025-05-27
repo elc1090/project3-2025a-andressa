@@ -103,7 +103,7 @@ function MindMap() {
           headers: { Authorization: `Bearer ${token}` },
         });
         alert("Mapa excluído com sucesso!");
-        navigate("/dashboard");
+        navigate("/tela");
       } catch (err) {
         console.error(err);
         alert("Erro ao excluir mapa.");
@@ -113,7 +113,7 @@ function MindMap() {
 
   const logout = () => {
     localStorage.removeItem("token");
-    navigate("/login");
+    navigate("/");
   };
 
   return (
@@ -124,7 +124,7 @@ function MindMap() {
             value={mapaNome}
             onChange={(e) => setMapaNome(e.target.value)}
             className="mindmap-input" />
-          <Link to="/dashboard" className="mindmap-button">⬅ Voltar</Link>
+          <Link to="/tela" className="mindmap-button">⬅ Voltar</Link>
           <button onClick={addNode} className="mindmap-button">Adicionar Nó</button>
           <button onClick={salvarMapa} className="mindmap-button">Salvar</button>
           <button onClick={excluirMapa} className="mindmap-button">Excluir</button>
