@@ -1,14 +1,6 @@
 # Projeto: Aplicação web com persistência de dados do lado do servidor
 
-> 1. Baixe este arquivo e edite o texto em formato Markdown conforme as instruções a seguir.
-> 2. Substitua todos os trechos de texto iniciados com "Substitua" por informações do seu projeto, conforme solicitado em cada trecho.
-> 3. Substitua a imagem por um screenshot do projeto (arquivo pode ser armazenado no repositório ou em URL externa). GIFs animados também são permitidos!
-> 4. Remova todas as instruções de entrega.
-> 5. Double-check: Certifique-se de que seu README.md não contenha instruções de entrega!
-> 6. Entregue este README.md dentro da pasta raiz do repositório de entrega.
-> Opcional: é permitido alterar a formatação do README, desde que sejam mantidas todas as informações solicitadas (tudo bem adicionar mais informações)
-
-![Substitua a imagem ao lado por um screenshot do seu projeto](https://mdswanson.com/static/chops-ux-step-4.png "Screenshot do projeto")
+![Substitua a imagem ao lado por um screenshot do seu projeto](image.png "Screenshot do projeto")
 
 
 Acesso: Substitua este texto pela URL de deploy do projeto
@@ -20,34 +12,47 @@ Andressa Teixeira | Sistemas para Internet
 
 ### Nosso produto
 
-Substitua este texto por uma descrição do que foi produzido: funcionalidades e relação com a temática "Compartilhamento"
-
-Site para desenvolvimento e compartilhamento de mapas mentais. 
+Site para desenvolvimento e compartilhamento de mapas mentais.
+Os usuários podem criar mapas mentais personalizados com blocos de texto conectados, nomear seus mapas e armazenar suas ideias visualmente. O sistema permite que os mapas sejam persistidos no banco de dados, vinculados ao usuário que os criou, possibilitando consulta, edição e exclusão futura.
 
 
 ### Desenvolvimento
 
-Substitua este texto por uma descrição do processo de desenvolvimento, explicando decisões tomadas e etapas do trabalho.
+Durante o desenvolvimento, optei por usar o React Flow para construir a interface interativa de mapas mentais, pela sua praticidade na criação de diagramas e fluxogramas. O backend foi implementado com Node.js e Express, com persistência dos dados em MongoDB Atlas.
+Foi utilizado controle de autenticação via token JWT, permitindo acesso seguro e exclusivo aos dados do usuário. Tentei implementar  no frontend, uma verificação para impedir que usuários editem mapas criados por outros, garantindo a integridade dos dados. Como todos os mapas são públicos todo mundo pode alterar, mas quando eu quiser alterar o mapa de outro usuário é criado um novo mapa para mim com aqueles dados + a minha alteração.
+
+A aplicação foi dividida em três grandes etapas:
+
+Criação e configuração do backend com rotas protegidas, conexão ao banco e modelo de dados.
+
+Construção da interface do usuário usando React e integração com React Flow.
+
+Integração entre frontend e backend com autenticação e persistência dos dados.
+
 
 
 #### Tecnologias
 
 Substitua este trecho por uma lista detalhada de tecnologias usadas (tanto as básicas, como HTML e CSS, como as mais específicas, por exemplo algum framework, biblioteca, etc.):
+- HTML/CSS
+- JavaScript (ES6)
 - React
 - React Flow
 - Node.js
-- Express
-- MongoDB
+- Express.js
+- MongoDB Atlas
+- Mongoose
+- JWT (JSON Web Tokens)
+- React Router Dom
+- Axios
 
 #### Ambiente de desenvolvimento
 
-Substitua este trecho por uma lista detalhada dos ambientes/ferramentas de desenvolvimento utilizadas (por exemplo, VS Code + alguma extensão, etc.)
-- ...
-- ...
+- VS Code
+- Postman
+- GoLive
 
 #### Referências e créditos
-
-Substitua este trecho por uma lista bem detalhada de todo material consultado para ajudar no projeto, por exemplo:  URL de templates usados, URL de icon kits usados, créditos para colegas que colaboraram, geradores de código (incluindo alguns prompts usados para o ChatGPT, se for o caso)
 - ...
 - ...
 

@@ -1,20 +1,21 @@
 const Mapa = require('../models/MapaMental');
 
-exports.criarMapa = async (req, res) => {
-  try {
-    const novoMapa = new Mapa({ ...req.body, userId: req.user.id });
-    const mapa = await novoMapa.save();
-    res.json(mapa);
-  } catch (err) {
-    res.status(500).send("Erro ao criar mapa");
-  }
-};
-
 exports.listarMapas = async (req, res) => {
   try {
-    const mapas = await Mapa.find({ userId: req.user.id });
-    res.json(mapas);
+    const mapas = await Mapa.find().populate("autor", "nome");
+
+    const resultado = mapas.map((mapa) => ({
+      _id: mapa._id,
+      titulo: mapa.titulo,
+      nodes: mapa.nodes,
+      edges: mapa.edges,
+      criadorId: mapa.autor?._id.toString(),
+      nomeCriador: mapa.autor?.nome || "Desconhecido",
+    }));
+
+    res.json(resultado);
   } catch (err) {
+    console.error(err);
     res.status(500).send("Erro ao listar mapas");
   }
 };

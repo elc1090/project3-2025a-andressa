@@ -1,0 +1,46 @@
+.mindmap-container {
+  height: 100vh;
+  width: 100vw;
+  background-color: #000;
+  color: #fff;
+}
+
+.mindmap-header {
+  height: 60px;
+  background-color: #111;
+  border-bottom: 2px solid #8A2BE2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.mindmap-header-left {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.mindmap-button {
+  background-color: transparent;
+  border: 1px solid #8A2BE2;
+  color: #8A2BE2;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.mindmap-input {
+  background-color: transparent;
+  border: 1px solid #8A2BE2;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.mindmap-flow {
+  height: calc(100% - 60px);
+  width: 100%;
+}

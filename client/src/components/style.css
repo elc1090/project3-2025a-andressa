@@ -1,0 +1,104 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #000;
+  justify-content: center;
+}
+
+/* Container central */
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Caixa de login/registro */
+.auth-box {
+  background: rgba(20, 20, 20, 0.8);
+  border: 2px solid #7d00ff;
+  border-radius: 16px;
+  padding: 40px 30px;
+  width: 350px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(125, 0, 255, 0.3);
+  color: #fff;
+  text-align: center;
+}
+
+.auth-title {
+  margin-bottom: 24px;
+  font-size: 28px;
+  color: #b97eff;
+}
+
+/* Formulário */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.auth-form input {
+  padding: 12px 14px;
+  background-color: transparent;
+  border: 2px solid #555;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.auth-form input::placeholder {
+  color: #888;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: #a24bff;
+  box-shadow: 0 0 8px #a24bff;
+}
+
+/* Botão */
+.auth-form button {
+  padding: 12px;
+  background: linear-gradient(90deg, #7d00ff, #a24bff);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.auth-form button:hover {
+  box-shadow: 0 0 10px #a24bff;
+  transform: scale(1.03);
+}
+
+.auth-form button:active {
+  background-color: #6200cc;
+}
+
+/* Rodapé */
+.auth-footer {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.auth-footer a {
+  color: #a24bff;
+  text-decoration: none;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,90 @@
+.dashboard {
+  background-color: #000;
+  color: white;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: #111;
+  border-bottom: 2px solid purple;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.usuario span {
+  margin-right: 1rem;
+}
+
+.usuario button {
+  background: purple;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.tabs button {
+  background: transparent;
+  border: 2px solid purple;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  margin: 0 10px;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.tabs .ativo {
+  background: purple;
+}
+
+.mapa-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 1rem 2rem;
+}
+
+.mapa-card {
+  background-color: #1a1a1a;
+  border: 2px solid purple;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.mapa-preview {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.paginacao {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.paginacao button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  background: #111;
+  border: 1px solid purple;
+  color: white;
+  border-radius: 5px;
+}
+
+.paginacao .pagina-ativa {
+  background: purple;
+}

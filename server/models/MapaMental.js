@@ -1,9 +1,29 @@
 const mongoose = require('mongoose');
 
-const MapaSchema = new mongoose.Schema({
-  titulo: String,
-  estrutura: Object, // aqui você armazena os dados do React Flow (nodes, edges)
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" }
-}, { timestamps: true });
+const nodeSchema = new mongoose.Schema({
+  id: String,
+  type: String,
+  position: {
+    x: Number,
+    y: Number
+  },
+  data: mongoose.Schema.Types.Mixed
+}, { _id: false });
 
-module.exports = mongoose.model("MapaMental", MapaSchema);
+const edgeSchema = new mongoose.Schema({
+  id: String,
+  source: String,
+  target: String,
+  type: String,
+  label: String
+}, { _id: false });
+
+const mapaMentalSchema = new mongoose.Schema({
+  titulo: { type: String, required: true },
+  autor: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  nodes: [nodeSchema],
+  edges: [edgeSchema],
+  createdAt: { type: Date, default: Date.now }
+});
+
+module.exports = mongoose.model('Mapa', mapaMentalSchema);
