@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App.jsx";
-import Login from "./components/Login.jsx";
-import Register from "./components/Register.jsx";
-import Dashboard from "./components/dashboard.jsx";
+import Login from "./Login.jsx";
+import Register from "./Register.jsx";
+import Dashboard from "./dashboard.jsx";
 import MindMap from "./components/MindMap.jsx";
 import "./index.css";
 

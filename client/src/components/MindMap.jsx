@@ -117,7 +117,7 @@ const MindMap = () => {
     if (window.confirm("Tem certeza que deseja excluir este mapa?")) {
       try {
         await axios.delete(`http://localhost:5000/api/mapas/${mapaId}`, {
-          headers: { Authorization: `Bearer Token ${token}` },
+          headers: { Authorization: `Bearer ${token}` },
         });
         alert("Mapa excluído com sucesso!");
         navigate("/dashboard");
