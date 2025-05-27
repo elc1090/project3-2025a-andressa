@@ -10,7 +10,7 @@ const Dashboard = () => {
     const fetchMapas = async () => {
       const token = localStorage.getItem("token");
       try {
-        const res = await axios.get("http://localhost:5000/api/mapas", {
+        const res = await axios.get("https://project3-2025a-andressa.onrender.com/api/mapas", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setMapas(res.data);

@@ -39,7 +39,7 @@ const MindMap = () => {
     const fetchMapa = async () => {
       if (id) {
         try {
-          const res = await axios.get(`http://localhost:5000/api/mapas/${id}`, {
+          const res = await axios.get(`https://project3-2025a-andressa.onrender.com/api/mapas/${id}`, {
             headers: { Authorization: `Bearer ${token}` },
           });
           setMapaNome(res.data.titulo);
@@ -51,7 +51,7 @@ const MindMap = () => {
         }
       } else {
         try {
-          const res = await axios.post("http://localhost:5000/api/mapas/salvar", {
+          const res = await axios.post("https://project3-2025a-andressa.onrender.com/api/mapas/salvar", {
             titulo: "Novo Mapa Mental",
             nodes: [],
             edges: [],
@@ -97,7 +97,7 @@ const MindMap = () => {
     const token = localStorage.getItem("token");
     try {
       await axios.put(
-        `http://localhost:5000/api/mapas/${mapaId}`,
+        `https://project3-2025a-andressa.onrender.com/api/mapas/${mapaId}`,
         {
           titulo: mapaNome,
           nodes,
@@ -116,7 +116,7 @@ const MindMap = () => {
     const token = localStorage.getItem("token");
     if (window.confirm("Tem certeza que deseja excluir este mapa?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/mapas/${mapaId}`, {
+        await axios.delete(`https://project3-2025a-andressa.onrender.com/api/mapas/${mapaId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         alert("Mapa excluído com sucesso!");
