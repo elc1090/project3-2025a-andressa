@@ -4,65 +4,53 @@ import axios from "axios";
 import "./tela.css";
 
 function Tela() {
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
-  const [mensagem, setMensagem] = useState("");
+  const [mapas, setMapas] = useState([]);
+  const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await fetch("https://project3-2025a-andressa.onrender.com/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ email, senha })
-      });
-
-      const data = await res.json();
-
-      if (res.ok) {
-        // Salvar token no localStorage
-        localStorage.setItem("token", data.token);
-        setMensagem("Login realizado com sucesso!");
-        // Redirecionar ou mostrar outra tela
-        window.location.href = "/dashboard";
-      } else {
-        setMensagem(data.msg || "Erro no login");
+  useEffect(() => {
+    const fetchMapas = async () => {
+      const token = localStorage.getItem("token");
+      try {
+        const res = await axios.get("https://project3-2025a-andressa.onrender.com/api/mapas", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setMapas(res.data);
+      } catch (err) {
+        console.error("Erro ao carregar mapas:", err);
       }
-    } catch (err) {
-      console.error(err);
-      setMensagem("Erro de conexão com o servidor.");
-    }
+    };
+
+    fetchMapas();
+  }, []);
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    navigate("/");
   };
 
+  return (
+    <div className="dashboard-container">
+      <div className="dashboard-header">
+        <h2 className="dashboard-titulo">Seus Mapas Mentais</h2>
+        <button onClick={logout} className="dashboard-botao">Sair</button>
+      </div>
 
-return (
-    <div className="auth-wrapper">
-      <div className="auth-box">
-        <h2 className="auth-title">Entrar</h2>
-        <form className="auth-form" onSubmit={handleLogin}>
-          <input
-          type="email"
-          placeholder="E-mail"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <br />
-        <input
-          type="password"
-          placeholder="Senha"
-          value={senha}
-          onChange={(e) => setSenha(e.target.value)}
-          required
-        />
-        <br />
-        <button type="submit">Entrar</button>
-        </form>
-        <p className="auth-footer">
-          Não tem conta? <Link to="/register">Cadastre-se</Link>
-        </p>
+      <div className="dashboard-criar">
+        <button onClick={() => navigate("/mapa")} className="dashboard-botao">
+          ➕ Criar Mapa Mental
+        </button>
+      </div>
+
+      <div className="dashboard-lista">
+        {mapas.map((mapa) => (
+          <div
+            key={mapa._id}
+            onClick={() => navigate(`/mapa/${mapa._id}`)}
+            className="dashboard-card"
+          >
+            <h3>{mapa.titulo}</h3>
+          </div>
+        ))}
       </div>
     </div>
   );
