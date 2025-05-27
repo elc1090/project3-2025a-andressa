@@ -11,7 +11,8 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/mindmap" element={<MindMap />} />
+        <Route path="/mapa" element={<MindMap />} />
+        <Route path="/mapa/:id" element={<MindMap />} />
       </Routes>
     </Router>
   );
