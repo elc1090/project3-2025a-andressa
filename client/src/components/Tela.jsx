@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import "./tela.css";
 
-const Dashboard = () => {
+function Tela() {
   const [mapas, setMapas] = useState([]);
   const navigate = useNavigate();
 
