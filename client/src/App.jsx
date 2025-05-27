@@ -1,6 +1,5 @@
 import React from 'react';
-import MindMap from './components/MindMap';
-import Login from './Login';
+import MindMap from './components/Login';
 
 function App() {
   return (
