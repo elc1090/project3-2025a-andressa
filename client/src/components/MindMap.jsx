@@ -12,18 +12,6 @@ import axios from "axios";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import "./mindmap.css";
 
-const nodeDefaults = {
-  style: {
-    border: "2px solid #8A2BE2",
-    padding: 10,
-    borderRadius: 8,
-    background: "#111",
-    color: "#fff",
-    fontWeight: "bold",
-    textAlign: "center",
-  },
-};
-
 const MindMap = () => {
   const { id } = useParams();
   const navigate = useNavigate();
