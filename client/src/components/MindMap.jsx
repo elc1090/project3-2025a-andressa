@@ -12,7 +12,7 @@ import axios from "axios";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import "./mindmap.css";
 
-const MindMap = () => {
+function MindMap() {
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -65,7 +65,7 @@ const MindMap = () => {
       id: `${+new Date()}`,
       data: { label: "Novo nó" },
       position: { x: Math.random() * 300, y: Math.random() * 300 },
-      ...nodeDefaults,
+      className: "custom-node",
     };
     setNodes((nds) => [...nds, newNode]);
   };
@@ -73,8 +73,7 @@ const MindMap = () => {
   const editarTextoDoNo = (nodeId) => {
     const texto = prompt("Digite o novo texto para o nó:");
     if (texto) {
-      setNodes((nds) =>
-        nds.map((node) => (node.id === nodeId ? { ...node, data: { ...node.data, label: texto } } : node))
+      setNodes((nds) => nds.map((node) => (node.id === nodeId ? { ...node, data: { ...node.data, label: texto } } : node))
       );
     }
   };
@@ -86,11 +85,7 @@ const MindMap = () => {
     try {
       await axios.put(
         `https://project3-2025a-andressa.onrender.com/api/mapas/${mapaId}`,
-        {
-          titulo: mapaNome,
-          nodes,
-          edges,
-        },
+        { titulo: mapaNome, nodes, edges },
         { headers: { Authorization: `Bearer ${token}` } }
       );
       alert("Mapa salvo com sucesso!");
@@ -128,8 +123,7 @@ const MindMap = () => {
           <input
             value={mapaNome}
             onChange={(e) => setMapaNome(e.target.value)}
-            className="mindmap-input"
-          />
+            className="mindmap-input" />
           <Link to="/dashboard" className="mindmap-button">⬅ Voltar</Link>
           <button onClick={addNode} className="mindmap-button">Adicionar Nó</button>
           <button onClick={salvarMapa} className="mindmap-button">Salvar</button>
@@ -155,6 +149,6 @@ const MindMap = () => {
       </div>
     </div>
   );
-};
+}
 
 export default MindMap;
