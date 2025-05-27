@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App.jsx";
 import Login from "./components/Login.jsx";
 import Register from "./components/Register.jsx";
-import Dashboard from "./components/dashboard.jsx";
+import Dashboard from "./components/Tela.jsx";
 import MindMap from "./components/MindMap.jsx";
 import "./index.css";
 
