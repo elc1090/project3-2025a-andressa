@@ -1,20 +1,12 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from './components/Login';
-import Register from './components/Register';
-import Dashboard from './components/dashboard';
+import React from 'react';
 import MindMap from './components/MindMap';
+import Login from './Login';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/mapa" element={<MindMap />} />
-        <Route path="/mapa/:id" element={<MindMap />} />
-      </Routes>
-    </Router>
+    <div style={{ height: '100vh' }}>
+      <Login />
+    </div>
   );
 }
 
