@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import "./tela.css";
 
 function Tela() {
   const [mapas, setMapas] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchMapas = async () => {
@@ -25,7 +23,15 @@ function Tela() {
 
   const logout = () => {
     localStorage.removeItem("token");
-    navigate("/");
+    window.location.href = "/";
+  };
+
+  const irParaCriarMapa = () => {
+    window.location.href = "/mapa";
+  };
+
+  const irParaMapaEspecifico = (id) => {
+    window.location.href = `/mapa/${id}`;
   };
 
   return (
@@ -36,7 +42,7 @@ function Tela() {
       </div>
 
       <div className="dashboard-criar">
-        <button onClick={() => navigate("/mapa")} className="dashboard-botao">
+        <button onClick={irParaCriarMapa} className="dashboard-botao">
           ➕ Criar Mapa Mental
         </button>
       </div>
@@ -45,7 +51,7 @@ function Tela() {
         {mapas.map((mapa) => (
           <div
             key={mapa._id}
-            onClick={() => navigate(`/mapa/${mapa._id}`)}
+            onClick={() => irParaMapaEspecifico(mapa._id)}
             className="dashboard-card"
           >
             <h3>{mapa.titulo}</h3>
@@ -54,6 +60,6 @@ function Tela() {
       </div>
     </div>
   );
-};
+}
 
 export default Tela;

@@ -8,7 +8,6 @@ function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [mensagem, setMensagem] = useState("");
-  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -28,7 +27,7 @@ function Login() {
         localStorage.setItem("token", data.token);
         setMensagem("Login realizado com sucesso!");
         // Redirecionar ou mostrar outra tela
-        navigate("/tela");
+        window.location.href = "/tela";
       } else {
         setMensagem(data.msg || "Erro no login");
       }
