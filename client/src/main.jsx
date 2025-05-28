@@ -7,6 +7,7 @@ import Register from "./components/Register.jsx";
 import Tela from "./components/Tela.jsx";
 import MindMap from "./components/MindMap.jsx";
 import "./index.css";
+import TelaTeste from "./components/TelaTeste.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -17,6 +18,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Route path="/tela" element={<Tela />} />
       <Route path="/mapa" element={<MindMap/>}/>
       <Route path="/mapa/:id" element={<MindMap />} />
+      <Route path="/telateste" element={<TelaTeste />} />
     </Routes>
   </BrowserRouter>
 );
