@@ -1,10 +1,12 @@
 # Projeto: Aplicação web com persistência de dados do lado do servidor
 
-![Substitua a imagem ao lado por um screenshot do seu projeto](image.png "Screenshot do projeto")
+Screenshot do projeto:
+(image.png "Screenshot do projeto")
 
 
-Acesso: Substitua este texto pela URL de deploy do projeto
-
+Acesso: 
+Frontend: https://project3-2025a-andressa.vercel.app/
+Backend: https://project3-2025a-andressa.onrender.com/api/
 
 ### Desenvolvedora
 Andressa Teixeira | Sistemas para Internet
@@ -57,7 +59,8 @@ Substitua este trecho por uma lista detalhada de tecnologias usadas (tanto as b�
 - ...
 
 
-
+### Explicação
+Os commits multiplos é porque não conseguia achar o problema dos links nas paginas. Usei useNavigate e funciona quando o link é direcionado no codigo, se for colocado no direto na url não abre a pagina. 
 
 ---
 Projeto entregue para a disciplina de [Desenvolvimento de Software para a Web](http://github.com/andreainfufsm/elc1090-2025a) em 2025a

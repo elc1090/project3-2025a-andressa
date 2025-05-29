@@ -39,14 +39,13 @@ function Tela() {
   return (
     <div className="dashboard-container">
       <div className="dashboard-header">
-        <h2 className="dashboard-titulo">Seus Mapas Mentais</h2>
+        <div className="dashboard-header-left">
+          <h2 className="dashboard-titulo">Mapas Mentais</h2>
+          <button onClick={irParaCriarMapa} className="dashboard-botao">
+            ➕ Criar Mapa
+          </button>
+        </div>
         <button onClick={logout} className="dashboard-botao">Sair</button>
-      </div>
-
-      <div className="dashboard-criar">
-        <button onClick={irParaCriarMapa} className="dashboard-botao">
-          ➕ Criar Mapa Mental
-        </button>
       </div>
 
       <div className="dashboard-lista">
@@ -57,6 +56,7 @@ function Tela() {
             className="dashboard-card"
           >
             <h3>{mapa.titulo}</h3>
+            <p>Criador: {mapa.nomeCriador}</p>
           </div>
         ))}
       </div>

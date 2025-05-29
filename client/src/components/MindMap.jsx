@@ -15,11 +15,16 @@ import "./mindmap.css";
 function MindMap() {
   const { id } = useParams();
   const navigate = useNavigate();
+  
 
   const [mapaId, setMapaId] = useState(id || null);
   const [mapaNome, setMapaNome] = useState("Meu Mapa Mental");
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+
+  // NOVOS estados para o popup de edição
+  const [editingNode, setEditingNode] = useState(null);
+  const [editedText, setEditedText] = useState("");
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -70,15 +75,20 @@ function MindMap() {
     setNodes((nds) => [...nds, newNode]);
   };
 
-  const editarTextoDoNo = (nodeId) => {
-    const texto = prompt("Digite o novo texto para o nó:");
-    if (texto) {
-      setNodes((nds) => nds.map((node) => (node.id === nodeId ? { ...node, data: { ...node.data, label: texto } } : node))
-      );
-    }
+  const onNodeDoubleClick = (_, node) => {
+    setEditingNode(node.id);
+    setEditedText(node.data.label);
   };
 
-  const onNodeDoubleClick = (_, node) => editarTextoDoNo(node.id);
+  const salvarTextoEditado = () => {
+    setNodes((nds) =>
+      nds.map((node) =>
+        node.id === editingNode ? { ...node, data: { ...node.data, label: editedText } } : node
+      )
+    );
+    setEditingNode(null);
+    setEditedText("");
+  };
 
   const salvarMapa = async () => {
     const token = localStorage.getItem("token");
@@ -91,7 +101,6 @@ function MindMap() {
       alert("Mapa salvo com sucesso!");
     } catch (err) {
       console.error("Erro ao salvar mapa:", err);
-      alert(`Erro ao salvar mapa.\nToken usado: ${mapaId}`);
     }
   };
 
@@ -123,7 +132,8 @@ function MindMap() {
           <input
             value={mapaNome}
             onChange={(e) => setMapaNome(e.target.value)}
-            className="mindmap-input" />
+            className="mindmap-input"
+          />
           <Link to="/tela" className="mindmap-button">⬅ Voltar</Link>
           <button onClick={addNode} className="mindmap-button">Adicionar Nó</button>
           <button onClick={salvarMapa} className="mindmap-button">Salvar</button>
@@ -146,6 +156,23 @@ function MindMap() {
           <Controls />
           <Background color="#222" gap={16} />
         </ReactFlow>
+
+        {editingNode && (
+          <div className="popup-overlay">
+            <div className="popup-content">
+              <h3>Editar texto</h3>
+              <input
+                type="text"
+                value={editedText}
+                onChange={(e) => setEditedText(e.target.value)}
+              />
+              <div className="popup-buttons">
+                <button onClick={salvarTextoEditado}>Salvar</button>
+                <button onClick={() => setEditingNode(null)}>Cancelar</button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

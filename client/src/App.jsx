@@ -4,7 +4,6 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Tela from "./components/Tela";
 import MindMap from "./components/MindMap";
-import TelaTeste from "./components/TelaTeste";
 
 function App() {
   return (
@@ -15,7 +14,6 @@ function App() {
       <Route path="/tela" element={<Tela />} />
       <Route path="/mapa" element={<MindMap />} />
       <Route path="/mapa/:id" element={<MindMap />} />
-      <Route path="/telateste" element={<TelaTeste />} />
     </Routes>
   );
 }
