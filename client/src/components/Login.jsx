@@ -65,7 +65,7 @@ return (
           Não tem conta? <Link to="/register">Cadastre-se</Link>
         </p>
         <p className="auth-footer">
-        <Link to="/telateste">Teste</Link>
+        <Link to="/tela">Teste</Link>
         </p>
       </div>
     </div>
