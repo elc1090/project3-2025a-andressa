@@ -64,6 +64,9 @@ return (
         <p className="auth-footer">
           Não tem conta? <Link to="/register">Cadastre-se</Link>
         </p>
+        <p className="auth-footer">
+        <Link to="/telateste">Teste</Link>
+        </p>
       </div>
     </div>
   );
