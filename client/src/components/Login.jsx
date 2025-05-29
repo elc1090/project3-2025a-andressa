@@ -27,7 +27,7 @@ function Login() {
         localStorage.setItem("token", data.token);
         setMensagem("Login realizado com sucesso!");
         // Redirecionar ou mostrar outra tela
-        window.location.href = "/telateste";
+        window.location.href = "/tela";
       } else {
         setMensagem(data.msg || "Erro no login");
       }
