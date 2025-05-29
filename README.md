@@ -1,7 +1,7 @@
 # Projeto: Aplicação web com persistência de dados do lado do servidor
 
 Screenshot do projeto:
-(image.png "Screenshot do projeto")
+(image.png)
 
 
 Acesso: 
