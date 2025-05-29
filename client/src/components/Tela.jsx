@@ -10,7 +10,8 @@ function Tela() {
     const fetchMapas = async () => {
       const token = localStorage.getItem("token");
       try {
-        const res = await get("https://project3-2025a-andressa.onrender.com/api/mapas", {
+        const res = await fetch("https://project3-2025a-andressa.onrender.com/api/mapas", {
+          method: "GET",
           headers: { Authorization: `Bearer ${token}` },
         });
         setMapas(res.data);
