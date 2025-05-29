@@ -1,17 +1,17 @@
-import React, { useState , useEffect} from "react";
-import 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./tela.css";
 
 function Tela() {
   const [mapas, setMapas] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchMapas = async () => {
       const token = localStorage.getItem("token");
       try {
-        const res = await fetch("https://project3-2025a-andressa.onrender.com/api/mapas", {
-          method: "GET",
+        const res = await axios.get("https://project3-2025a-andressa.onrender.com/api/mapas", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setMapas(res.data);
@@ -25,15 +25,15 @@ function Tela() {
 
   const logout = () => {
     localStorage.removeItem("token");
-    window.location.href = "/";
+    navigate("/login");
   };
 
   const irParaCriarMapa = () => {
-    window.location.href = "/mapa";
+    navigate("/mapa");
   };
 
   const irParaMapaEspecifico = (id) => {
-    window.location.href = `/mapa/${id}`;
+    navigate(`/mapa/${id}`);
   };
 
   return (
