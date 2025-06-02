@@ -8,6 +8,7 @@ function Register() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [mensagem, setMensagem] = useState("");
+  const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -21,7 +22,7 @@ function Register() {
       // Se chegou aqui, o cadastro foi bem-sucedido
       setMensagem("Cadastro realizado com sucesso!");
       localStorage.setItem("token", res.data.token);
-      window.location.href = "/login";
+      navigate("/login");
     } catch (err) {
       if (err.response) {
         // O servidor respondeu com erro
